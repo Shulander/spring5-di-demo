@@ -6,19 +6,18 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-
 public class SetterInjectedControllerTest {
 
-    private SetterInjectedController setterInjectedController;
+    private SetterInjectedController getterInjectedController;
 
     @Before
     public void setUp() {
-        this.setterInjectedController = new SetterInjectedController();
-        this.setterInjectedController.setGreetingService(new GreetingServiceImpl());
+        this.getterInjectedController = new SetterInjectedController();
+        this.getterInjectedController.setGreetingService(new GreetingServiceImpl());
     }
 
     @Test
     public void testGreeting() {
-        assertEquals(GreetingServiceImpl.HELLO_GURUS, setterInjectedController.sayHello());
+        assertEquals(GreetingServiceImpl.HELLO_GURUS, getterInjectedController.sayHello());
     }
 }
