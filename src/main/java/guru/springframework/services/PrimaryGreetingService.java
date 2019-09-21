@@ -8,8 +8,11 @@ import org.springframework.stereotype.Service;
 @Service
 @Profile({"default", "en"})
 public class PrimaryGreetingService implements GreetingService {
+
+    private GreetingRepository greetingRepository;
+
     @Override
     public String sayGreeting() {
-        return "Hello - Primary Greeting service";
+        return greetingRepository.getEnglishGreeting();
     }
 }
