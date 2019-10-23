@@ -1,7 +1,12 @@
-spring:
-  profiles:
-    active: en
 ds:
   username: Henrique
   password: somepass
   url: datasource-url
+
+--- # 'new' file separator
+# profile selector
+spring:
+  profiles: de
+
+jms:
+  username: "Jms Henrique GERMAN!!!"
