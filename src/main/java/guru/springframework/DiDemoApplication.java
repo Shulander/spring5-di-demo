@@ -2,6 +2,7 @@ package guru.springframework;
 
 import guru.springframework.controllers.MyController;
 import guru.springframework.examplebeans.FakeDataSource;
+import guru.springframework.examplebeans.FakeJmsBroker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,7 +19,9 @@ public class DiDemoApplication {
 
 
         FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
+        FakeJmsBroker fakeJmsSource = ctx.getBean(FakeJmsBroker.class);
 
-        log.info("User: {}", fakeDataSource.getUser());
+        log.info("DS User: {}", fakeDataSource.getUser());
+        log.info("Jms User: {}", fakeJmsSource.getUser());
     }
 }
