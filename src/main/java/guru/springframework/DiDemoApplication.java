@@ -1,13 +1,13 @@
 package guru.springframework;
 
-import guru.springframework.controllers.ConstructorInjectedController;
 import guru.springframework.controllers.MyController;
-import guru.springframework.controllers.PropertyInjectedController;
-import guru.springframework.controllers.SetterInjectedController;
+import guru.springframework.examplebeans.FakeDataSource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+@Slf4j
 @SpringBootApplication
 public class DiDemoApplication {
 
@@ -16,9 +16,9 @@ public class DiDemoApplication {
 
         MyController controller = (MyController) ctx.getBean("myController");
 
-        System.out.println(controller.hello());
-        System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
-        System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
-        System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
+
+        FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
+
+        log.info("User: {}", fakeDataSource.getUser());
     }
 }
